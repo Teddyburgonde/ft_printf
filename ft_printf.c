@@ -3,56 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 12:50:42 by tebandam          #+#    #+#             */
-/*   Updated: 2023/11/04 20:06:23 by tebandam         ###   ########.fr       */
+/*   Created: 2023/11/06 10:13:03 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/07 18:15:15 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
+
+int	format(char c, va_list list)
+{
+	int	print;
+
+	if (c == 's')
+		print = ft_putstr(va_arg(list, char *));
+	else if (c == 'c')
+		print = ft_putchar(va_arg(list, int));
+	else if (c == '%')
+        	print = write(1, "%", 1); 
+	else if (c == 'd' || c == 'i')
+		print = ft_print_int(va_arg(list, int));
+	else if (c == 'u')
+        	print = ft_unsigned_putnbr(va_arg(list, unsigned int),0);
+	else if (c == 'p')
+ 		print = print_ptr_hexa(va_arg(list, unsigned long));
+ 	else if (c == 'x')
+		print = print_hexa_lowercase(va_arg(list, unsigned int));
+ 	else if (c == 'X')
+ 		print = print_hexa_uppercase(va_arg(list, unsigned int));
+	return (print);
+}
+
 
 int	ft_printf(char *str, ...)
 {
-	va_list	list;
-	int		i;
-	int		print;
+	va_list		list;
+	int			i;
+	int			print;
 
 	va_start(list, str);
 	print = 0;
 	i = 0;
+	
 	while (str[i])
 	{
-		if (str[i] == '%' && str[i + 1] == 's')
+		if (str[i] == '%')
 		{
-			print += (int *)ft_putstr(va_arg(list, char *));
-			i++;
-		}
-		else if (str[i] == '%' && str[i + 1] == 'd')
-		{
-			print += ft_strlen(ft_putnbr(va_arg(list, int)));
+			print += format(str[i + 1], list);
 			i++;
 		}
 		else
-		{
-			write (1, &str[i], 1);
-		}
+			print += write(1, &str[i], 1);
 		i++;
 	}
 	va_end(list);
 	return (print);
 }
-
-int main(void)
-{
- 
-    char    str[] = "salut les amis";
-    int	a;
-	double	b;
-
-	a = -42;
-	b = 10.4;
-	ft_printf("results : %d\n", a);
-	ft_printf("autre resultat : %s\n", str);
-	ft_printf("%f", b);	
-} 

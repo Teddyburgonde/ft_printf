@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 18:00:24 by tebandam          #+#    #+#             */
-/*   Updated: 2023/11/07 18:00:28 by tebandam         ###   ########.fr       */
+/*   Created: 2023/11/06 10:42:03 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/07 13:23:33 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_putstr(char *str)
+int	ft_putchar(char c)
 {
-	int	i;
-	
-	if (!str)
-	{
-		write (1, "(null)", 6);
-		return (6);
-	}
-	i = 0;
-	while (str[i])
-	{
-		write (1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	write (1, &c, 1);
+	return (1);
 }
