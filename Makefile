@@ -13,7 +13,7 @@
 NAME=libftprintf.a
 
 SRCS=ft_hexadecimal_lowercase.c ft_hexadecimal_uppercase.c ft_printf.c \
-     ft_putchar.c ft_putstr.c ft_unsigned_putnbr.c print_ptr_hexa.c 
+     ft_putchar.c ft_putstr.c ft_putnbr.c print_ptr_hexa.c \
 
 OBJS=$(SRCS:.c=.o)
 

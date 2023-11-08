@@ -23,9 +23,9 @@ int	format(char c, va_list list)
 	else if (c == '%')
         	print = write(1, "%", 1); 
 	else if (c == 'd' || c == 'i')
-		print = ft_print_int(va_arg(list, int));
+		print = ft_putnbr(va_arg(list, int));
 	else if (c == 'u')
-        	print = ft_unsigned_putnbr(va_arg(list, unsigned int),0);
+        	print = ft_unsigned_int_putnbr(va_arg(list, unsigned int));
 	else if (c == 'p')
  		print = print_ptr_hexa(va_arg(list, unsigned long));
  	else if (c == 'x')
