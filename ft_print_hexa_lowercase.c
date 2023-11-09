@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_for_ptr.c                                  :+:      :+:    :+:   */
+/*   ft_print_hexa_lowercase.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42angouleme.fr  +#+  +:+       +#+        */
+/*   By: tebandam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 19:34:22 by tebandam          #+#    #+#             */
-/*   Updated: 2023/11/06 19:34:37 by tebandam         ###   ########.fr       */
+/*   Created: 2023/11/09 18:18:05 by tebandam          #+#    #+#             */
+/*   Updated: 2023/11/09 18:21:58 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_print_ptr(unsigned long long ptr)
-{
-	int	print_length;
+#include "libftprintf.h"
 
+int	print_hexa_lowercase(unsigned int nb)
+{
+	int		print_length;
+	char	*lowercase;
+
+	lowercase[] = "0123456789abcdef";
 	print_length = 0;
-	print_length += write(1, "0x", 2);
-	if (ptr == 0)
-		print_length += write(1, "0", 1);
-	else
-	{
-		ft_put_ptr(ptr);
-		print_length += ft_ptr_len(ptr);
-	}
+	if (nb >= 16)
+		print_length = print_hexa_lowercase(nb / 16);
+	print_length += 1;
+	write(1, &lowercase[nb % 16], 1);
 	return (print_length);
 }
