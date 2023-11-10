@@ -12,9 +12,9 @@
 
 #include "libftprintf.h"
 
-int ft_unsigned_int_putnbr(unsigned int n)
+int	ft_unsigned_int_putnbr(unsigned int n)
 {
-	int print;
+	int	print;
 
 	print = 0;
 	if (n > 9)
@@ -26,7 +26,7 @@ int ft_unsigned_int_putnbr(unsigned int n)
 int	ft_putnbr(int nb)
 {
 	int	print;
-	int negative;
+	int	negative;
 
 	print = 0;
 	negative = 0;
