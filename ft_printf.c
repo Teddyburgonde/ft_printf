@@ -6,7 +6,7 @@
 /*   By: tebandam <tebandam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:13:03 by tebandam          #+#    #+#             */
-/*   Updated: 2023/11/10 11:55:30 by tebandam         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:35:38 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ static int	format(char c, va_list list)
 		print = ft_print_hexa_lowercase(va_arg(list, unsigned int));
 	else if (c == 'X')
 		print = ft_print_hexa_uppercase(va_arg(list, unsigned int));
+	else
+	{
+		print += ft_putchar ('%');
+		print += ft_putchar(c);
+	}
 	return (print);
 }
 
@@ -42,11 +47,13 @@ int	ft_printf(char *str, ...)
 	int			i;
 	int			print;
 
+	if (!str)
+		return (-1);
 	va_start(list, str);
 	print = 0;
 	i = 0;
 	while (str[i])
-	{
+	{	
 		if (str[i] == '%')
 		{
 			print += format(str[i + 1], list);
