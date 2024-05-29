@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddybandama <teddybandama@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:22:21 by tebandam          #+#    #+#             */
-/*   Updated: 2023/11/10 10:38:11 by tebandam         ###   ########.fr       */
+/*   Updated: 2024/05/29 19:35:49 by teddybandam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,28 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-int				ft_printf(char *str, ...);
-int				ft_putstr(char *str);
-int				ft_putchar(char c);
-int				ft_print_hexa_lowercase(unsigned int nb);
+
+/*
+* Functions for print
+*/
+
+int             format(char c, va_list list);
 int				ft_print_hexa_uppercase(unsigned int nb);
+int				ft_print_hexa_lowercase(unsigned int nb);
 int				print_ptr_hexa(unsigned long nb);
 int				ft_unsigned_int_putnbr(unsigned int n);
+
+/*
+* Utils
+*/
+
+int				ft_putstr(char *str);
+int				ft_putchar(char c);
 int				ft_putnbr(int nb);
+
+/*
+* Main
+*/
+int				ft_printf(char *str, ...);
 
 #endif

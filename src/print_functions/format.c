@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   format.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tebandam <tebandam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teddybandama <teddybandama@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 10:13:03 by tebandam          #+#    #+#             */
-/*   Updated: 2023/11/11 16:35:38 by tebandam         ###   ########.fr       */
+/*   Created: 2024/05/29 19:18:42 by teddybandam       #+#    #+#             */
+/*   Updated: 2024/05/29 19:20:29 by teddybandam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int	format(char c, va_list list)
+int	format(char c, va_list list)
 {
 	int	print;
 
@@ -38,31 +38,5 @@ static int	format(char c, va_list list)
 		print += ft_putchar ('%');
 		print += ft_putchar(c);
 	}
-	return (print);
-}
-
-int	ft_printf(char *str, ...)
-{
-	va_list		list;
-	int			i;
-	int			print;
-
-	if (!str)
-		return (-1);
-	va_start(list, str);
-	print = 0;
-	i = 0;
-	while (str[i])
-	{	
-		if (str[i] == '%')
-		{
-			print += format(str[i + 1], list);
-			i++;
-		}
-		else
-			print += write(1, &str[i], 1);
-		i++;
-	}
-	va_end(list);
 	return (print);
 }

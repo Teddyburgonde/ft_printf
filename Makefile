@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tebandam <tebandam@student.42.fr>          +#+  +:+       +#+         #
+#    By: teddybandama <teddybandama@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:28:34 by tebandam          #+#    #+#              #
-#    Updated: 2024/05/29 17:19:35 by tebandam         ###   ########.fr        #
+#    Updated: 2024/05/29 19:36:45 by teddybandam      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS= src/utils/ft_putchar.c \
 	src/print_functions/print_ptr_hexa.c \
 	src/print_functions/ft_print_hexa_lowercase.c \
 	src/print_functions/ft_print_hexa_uppercase.c \
-	ft_printf.c \
+	src/print_functions/format.c \
+	src/ft_printf.c \
 
 OBJS=$(SRCS:.c=.o)
 
