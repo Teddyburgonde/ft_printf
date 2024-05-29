@@ -6,14 +6,19 @@
 #    By: tebandam <tebandam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:28:34 by tebandam          #+#    #+#              #
-#    Updated: 2023/11/10 11:16:39 by tebandam         ###   ########.fr        #
+#    Updated: 2024/05/29 17:19:35 by tebandam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libftprintf.a
 
-SRCS=ft_print_hexa_lowercase.c ft_print_hexa_uppercase.c ft_printf.c \
-     ft_putchar.c ft_putstr.c ft_putnbr.c print_ptr_hexa.c \
+SRCS= src/utils/ft_putchar.c \
+	src/utils/ft_putstr.c \
+	src/utils/ft_putnbr.c \
+	src/print_functions/print_ptr_hexa.c \
+	src/print_functions/ft_print_hexa_lowercase.c \
+	src/print_functions/ft_print_hexa_uppercase.c \
+	ft_printf.c \
 
 OBJS=$(SRCS:.c=.o)
 
@@ -21,7 +26,7 @@ RM=rm -f
 
 CC= cc
 ARRC=ar -rc
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror -Iincludes
 
 all: $(NAME)
 
